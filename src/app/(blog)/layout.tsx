@@ -1,0 +1,14 @@
+import { Navbar } from '@/components/layout/navbar'
+import { Footer } from '@/components/layout/footer'
+import { WhatsAppFloat } from '@/components/layout/whatsapp-float'
+
+export default function BlogLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <>
+      <Navbar />
+      {children}
+      <Footer />
+      <WhatsAppFloat />
+    </>
+  )
+}

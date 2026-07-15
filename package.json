@@ -1,0 +1,48 @@
+{
+  "name": "nubiz",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^5.4.0",
+    "@react-email/components": "^1.0.12",
+    "@vercel/analytics": "^2.0.1",
+    "@vercel/speed-insights": "^2.0.0",
+    "gray-matter": "^4.0.3",
+    "motion": "^12.42.2",
+    "next": "16.2.10",
+    "next-mdx-remote": "^6.0.0",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "react-hook-form": "^7.81.0",
+    "reading-time": "^1.5.0",
+    "resend": "^6.17.2",
+    "schema-dts": "^2.0.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@mdx-js/loader": "^3.1.1",
+    "@mdx-js/react": "^3.1.1",
+    "@next/mdx": "^16.2.10",
+    "@tailwindcss/postcss": "^4",
+    "@tailwindcss/typography": "^0.5.20",
+    "@types/mdx": "^2.0.14",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.10",
+    "rehype-autolink-headings": "^7.1.0",
+    "rehype-pretty-code": "^0.14.4",
+    "rehype-slug": "^6.0.0",
+    "remark-gfm": "^4.0.1",
+    "shiki": "^4.3.1",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}
