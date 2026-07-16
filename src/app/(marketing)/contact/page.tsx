@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { PageHero } from '@/components/marketing/page-hero'
 import { ContactForm } from '@/components/marketing/contact-form'
+import { WhatsAppCardLink, PhoneCardLink } from '@/components/marketing/contact-trackers'
 
 export function generateMetadata(): Metadata {
   return {
@@ -78,10 +79,8 @@ export default function ContactPage() {
             The fastest way to reach us is WhatsApp. A named consultant responds — not a bot.
           </p>
 
-          <a
+          <WhatsAppCardLink
             href={WA_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
             className="nz-contact-card"
             style={{ ...CARD_BASE, background: 'var(--pink)', color: '#fff' }}
           >
@@ -92,9 +91,9 @@ export default function ContactPage() {
               <span style={{ fontSize: 16, fontWeight: 700 }}>WhatsApp Us Now</span>
               <span style={{ fontSize: 14, opacity: 0.85 }}>+971 56 489 9004 · Usually responds &lt; 1 hour</span>
             </span>
-          </a>
+          </WhatsAppCardLink>
 
-          <a
+          <PhoneCardLink
             href="tel:+971564899004"
             className="nz-contact-card"
             style={{ ...CARD_BASE, background: '#fff', color: '#111', border: '1px solid var(--pink)' }}
@@ -106,7 +105,7 @@ export default function ContactPage() {
               <span style={{ fontSize: 16, fontWeight: 700 }}>Call Us</span>
               <span style={{ fontSize: 14, opacity: 0.7 }}>+971 56 489 9004 · Mon–Fri 8AM–8PM</span>
             </span>
-          </a>
+          </PhoneCardLink>
 
           <a
             href="mailto:info@nubiz.ae"

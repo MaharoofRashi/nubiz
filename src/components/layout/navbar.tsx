@@ -4,6 +4,7 @@ import { useState, useEffect, useRef, type ReactNode } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { trackWhatsAppClick } from '@/lib/gtm'
 
 const WA_LINK = 'https://wa.me/971564899004'
 
@@ -173,7 +174,13 @@ export function Navbar() {
           </div>
 
           <div className="nz-nav__actions">
-            <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="nz-btn-wa">
+            <a
+              href={WA_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="nz-btn-wa"
+              onClick={() => trackWhatsAppClick()}
+            >
               <WhatsAppIcon />
               WhatsApp
             </a>
@@ -301,6 +308,7 @@ export function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="nm-contact-card nm-contact-card--wa"
+                onClick={() => trackWhatsAppClick()}
               >
                 <span className="nm-contact-card__icon">
                   <WhatsAppIcon size={18} />
@@ -470,7 +478,13 @@ export function Navbar() {
         </div>
 
         <div className="nm-mobile__foot">
-          <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="nz-btn-wa">
+          <a
+            href={WA_LINK}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="nz-btn-wa"
+            onClick={() => trackWhatsAppClick()}
+          >
             <WhatsAppIcon />
             WhatsApp
           </a>

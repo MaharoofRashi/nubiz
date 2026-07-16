@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from 'react'
 import { submitContact } from '@/app/actions/contact'
+import { trackCalculatorComplete } from '@/lib/gtm'
 
 const WA_LINK = 'https://wa.me/971564899004'
 
@@ -137,6 +138,7 @@ export function MultiStepCalculator() {
 
       if (result.ok) {
         setDone(true)
+        trackCalculatorComplete()
       } else {
         setSubmitError('Failed to send. Please WhatsApp us directly.')
       }

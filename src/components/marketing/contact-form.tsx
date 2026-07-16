@@ -1,12 +1,17 @@
 'use client'
 
-import { useActionState } from 'react'
+import { useActionState, useEffect } from 'react'
 import { submitContact, type ContactState } from '@/app/actions/contact'
+import { trackFormSubmit } from '@/lib/gtm'
 
 const initialState: ContactState = { ok: false, errors: null }
 
 export function ContactForm() {
   const [state, formAction, isPending] = useActionState(submitContact, initialState)
+
+  useEffect(() => {
+    if (state.ok) trackFormSubmit()
+  }, [state.ok])
 
   if (state.ok) {
     return (
