@@ -1,8 +1,37 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { MultiStepCalculator } from '@/components/marketing/multi-step-calculator'
+import { FAQSchema } from '@/components/structured-data'
 
 const WA_LINK = 'https://wa.me/971564899004'
+
+const FAQS = [
+  {
+    question: 'How much does it cost to set up a company in Dubai?',
+    answer:
+      'Freezone company setup in Dubai starts from AED 12,500 for the most affordable options. The total cost depends on the freezone, number of visas, and activity type. NUBIZ provides written line-item cost breakdowns with no hidden fees.',
+  },
+  {
+    question: 'How long does it take to set up a company in UAE?',
+    answer:
+      'Freezone company formation in UAE can take as little as 3-5 business days for digital freezones like IFZA and Meydan. Dubai mainland setup typically takes 10-15 business days. NUBIZ manages the entire process on your behalf.',
+  },
+  {
+    question: 'Can a foreigner own 100% of a company in UAE?',
+    answer:
+      'Yes. Since the 2021 UAE Commercial Companies Law amendments, 100% foreign ownership is permitted for most business activities on the mainland and in all UAE freezones.',
+  },
+  {
+    question: 'Do I need to be in Dubai to set up a UAE company?',
+    answer:
+      'No. Most freezone company setups can be completed entirely remotely. The UAE residency visa process requires a physical visit for the medical fitness test and Emirates ID biometrics.',
+  },
+  {
+    question: 'What is the difference between mainland and freezone in UAE?',
+    answer:
+      'Mainland companies can trade anywhere in the UAE including with government entities. Freezone companies can access 0% corporate tax on qualifying international income. The right choice depends on who your customers are.',
+  },
+]
 
 const HERO_STATS = [
   { num: '500', accent: '+', label: 'Companies formed' },
@@ -59,6 +88,7 @@ const POSTS = [
 export default function HomePage() {
   return (
     <main>
+      <FAQSchema faqs={FAQS} />
       {/* ================= HERO ================= */}
       <section className="nz-hero">
         <div className="nz-hero__grid">

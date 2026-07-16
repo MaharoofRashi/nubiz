@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { PageHero } from '@/components/marketing/page-hero'
 import { CtaSection } from '@/components/marketing/cta-section'
+import { ServiceSchema, BreadcrumbSchema } from '@/components/structured-data'
 import { freezones, getFreezone } from '@/data/freezones'
 
 const WA_LINK = 'https://wa.me/971564899004'
@@ -66,8 +67,23 @@ export default async function FreezonePage({
   const fz = getFreezone(slug)
   if (!fz) notFound()
 
+  const fzUrl = `https://nubiz.ae/business-setup/freezone/${slug}`
+
   return (
     <main>
+      <ServiceSchema
+        name={`${fz.name} Company Setup UAE`}
+        description={fz.description}
+        url={fzUrl}
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: 'Home', url: 'https://nubiz.ae' },
+          { name: 'Business Setup', url: 'https://nubiz.ae/business-setup' },
+          { name: 'Freezone', url: 'https://nubiz.ae/business-setup/freezone' },
+          { name: fz.name, url: fzUrl },
+        ]}
+      />
       <PageHero
         eyebrow={`UAE Freezone · ${fz.location}`}
         title={

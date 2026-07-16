@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { PageHero } from '@/components/marketing/page-hero'
 import { CtaSection } from '@/components/marketing/cta-section'
+import { ServiceSchema, BreadcrumbSchema } from '@/components/structured-data'
 
 export function generateMetadata(): Metadata {
   return {
@@ -57,6 +58,18 @@ const FACTS = [
 export default function BankAccountPage() {
   return (
     <main>
+      <ServiceSchema
+        name="UAE Corporate Bank Account Opening"
+        description="We match your company to the right UAE bank, prepare a complete KYC file, and coordinate your corporate account application through to approval."
+        url="https://nubiz.ae/corporate-services/bank-account"
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: 'Home', url: 'https://nubiz.ae' },
+          { name: 'Corporate Services', url: 'https://nubiz.ae/corporate-services' },
+          { name: 'Bank Account Opening', url: 'https://nubiz.ae/corporate-services/bank-account' },
+        ]}
+      />
       <PageHero
         eyebrow="Bank Account Opening"
         title={

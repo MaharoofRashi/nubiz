@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { PageHero } from '@/components/marketing/page-hero'
 import { CtaSection } from '@/components/marketing/cta-section'
+import { ServiceSchema, BreadcrumbSchema } from '@/components/structured-data'
 
 export function generateMetadata(): Metadata {
   return {
@@ -65,6 +66,17 @@ const SERVICES = [
 export default function CorporateServicesPage() {
   return (
     <main>
+      <ServiceSchema
+        name="Corporate Services UAE"
+        description="Ongoing UAE business support after setup — PRO services, residency visas, accounting & bookkeeping, and corporate bank account opening. One team, end to end."
+        url="https://nubiz.ae/corporate-services"
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: 'Home', url: 'https://nubiz.ae' },
+          { name: 'Corporate Services', url: 'https://nubiz.ae/corporate-services' },
+        ]}
+      />
       <PageHero
         eyebrow="Corporate Services"
         title={

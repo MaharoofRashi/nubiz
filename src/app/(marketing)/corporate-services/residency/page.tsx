@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { PageHero } from '@/components/marketing/page-hero'
 import { CtaSection } from '@/components/marketing/cta-section'
+import { ServiceSchema, BreadcrumbSchema } from '@/components/structured-data'
 
 export function generateMetadata(): Metadata {
   return {
@@ -87,6 +88,18 @@ const INCLUDES = [
 export default function ResidencyPage() {
   return (
     <main>
+      <ServiceSchema
+        name="UAE Residency Visa Services"
+        description="End-to-end UAE residency visa services — employment, family, investor, Golden and Green visas. We manage every step from entry permit to Emirates ID."
+        url="https://nubiz.ae/corporate-services/residency"
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: 'Home', url: 'https://nubiz.ae' },
+          { name: 'Corporate Services', url: 'https://nubiz.ae/corporate-services' },
+          { name: 'Residency Services', url: 'https://nubiz.ae/corporate-services/residency' },
+        ]}
+      />
       <PageHero
         eyebrow="Residency Services"
         title={

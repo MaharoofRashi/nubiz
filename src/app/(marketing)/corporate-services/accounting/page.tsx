@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { PageHero } from '@/components/marketing/page-hero'
 import { CtaSection } from '@/components/marketing/cta-section'
+import { ServiceSchema, BreadcrumbSchema } from '@/components/structured-data'
 
 export function generateMetadata(): Metadata {
   return {
@@ -51,6 +52,18 @@ const CONSEQUENCES = [
 export default function AccountingPage() {
   return (
     <main>
+      <ServiceSchema
+        name="Accounting & Bookkeeping UAE"
+        description="IFRS-compliant bookkeeping, VAT returns, and UAE Corporate Tax filing. We keep your books accurate and file every return before the deadline — so you never pay a penalty for a process error."
+        url="https://nubiz.ae/corporate-services/accounting"
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: 'Home', url: 'https://nubiz.ae' },
+          { name: 'Corporate Services', url: 'https://nubiz.ae/corporate-services' },
+          { name: 'Accounting & Bookkeeping', url: 'https://nubiz.ae/corporate-services/accounting' },
+        ]}
+      />
       <PageHero
         eyebrow="Accounting & Bookkeeping"
         title={

@@ -18,7 +18,14 @@ const withMDX = createMDX({
 const nextConfig: NextConfig = {
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
   async redirects() {
-    return []
+    return [
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'www.nubiz.ae' }],
+        destination: 'https://nubiz.ae/:path*',
+        permanent: true,
+      },
+    ]
   },
 }
 

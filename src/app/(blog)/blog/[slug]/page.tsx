@@ -7,6 +7,7 @@ import rehypeSlug from 'rehype-slug'
 import { useMDXComponents } from '@/mdx-components'
 import { PostCard, type PostCardData } from '@/components/blog/post-card'
 import { ShareButtons } from '@/components/blog/share-buttons'
+import { ArticleSchema } from '@/components/structured-data'
 import { getPosts, getPost, getRelated, categoryLabel, formatDate } from '@/lib/blog'
 
 const WA_LINK = 'https://wa.me/971564899004'
@@ -90,6 +91,13 @@ export default async function BlogPostPage({
 
   return (
     <main style={{ background: '#fff' }}>
+      <ArticleSchema
+        title={post.title}
+        description={post.description}
+        url={shareUrl}
+        datePublished={post.date}
+        dateModified={post.date}
+      />
       <div style={CONTAINER}>
         <div className="blog-article-layout">
           {/* Article */}

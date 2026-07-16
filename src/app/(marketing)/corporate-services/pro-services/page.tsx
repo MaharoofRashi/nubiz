@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { PageHero } from '@/components/marketing/page-hero'
 import { CtaSection } from '@/components/marketing/cta-section'
+import { ServiceSchema, BreadcrumbSchema } from '@/components/structured-data'
 
 export function generateMetadata(): Metadata {
   return {
@@ -82,6 +83,18 @@ const CATEGORIES = [
 export default function ProServicesPage() {
   return (
     <main>
+      <ServiceSchema
+        name="PRO Services Dubai UAE"
+        description="Outsource your UAE PRO services — trade license renewals, document attestation, MOHRE and GDRFA filings, and a full compliance calendar managed by a named PRO manager."
+        url="https://nubiz.ae/corporate-services/pro-services"
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: 'Home', url: 'https://nubiz.ae' },
+          { name: 'Corporate Services', url: 'https://nubiz.ae/corporate-services' },
+          { name: 'PRO Services', url: 'https://nubiz.ae/corporate-services/pro-services' },
+        ]}
+      />
       <PageHero
         eyebrow="PRO Services"
         title={
