@@ -17,16 +17,9 @@ const withMDX = createMDX({
 
 const nextConfig: NextConfig = {
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
-  async redirects() {
-    return [
-      {
-        source: '/:path*',
-        has: [{ type: 'host', value: 'www.nubiz.ae' }],
-        destination: 'https://nubiz.ae/:path*',
-        permanent: true,
-      },
-    ]
-  },
+  // Note: www → apex (non-www) redirection is handled at the Vercel domain
+  // level. Do NOT add an app-level host redirect here — it conflicts with
+  // Vercel's platform redirect and causes an ERR_TOO_MANY_REDIRECTS loop.
 }
 
 export default withMDX(nextConfig)
