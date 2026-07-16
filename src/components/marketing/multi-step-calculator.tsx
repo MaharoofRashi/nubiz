@@ -1,6 +1,7 @@
 'use client'
 
 import { useMemo, useState } from 'react'
+import { submitContact } from '@/app/actions/contact'
 
 const WA_LINK = 'https://wa.me/971564899004'
 
@@ -69,6 +70,8 @@ export function MultiStepCalculator() {
   const [phone, setPhone] = useState('')
   const [email, setEmail] = useState('')
   const [done, setDone] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState('')
 
   const range = useMemo(
     () =>
@@ -99,12 +102,44 @@ export function MultiStepCalculator() {
     setPhone('')
     setEmail('')
     setDone(false)
+    setIsSubmitting(false)
+    setSubmitError('')
   }
 
-  const handleNext = () => {
-    if (!canAdvance) return
+  const handleNext = async () => {
+    if (!canAdvance || isSubmitting) return
     if (step === 3) {
-      setDone(true)
+      setIsSubmitting(true)
+      setSubmitError('')
+
+      const fd = new FormData()
+      fd.append('name', name)
+      fd.append('email', email)
+      fd.append('phone', phone)
+      fd.append(
+        'inquiryType',
+        `Calculator Lead — ${businessType} · ${jurisdiction}` +
+          (freezone ? ` (${freezone})` : '') +
+          ` · ${visaCount ?? 1} visas`,
+      )
+      fd.append(
+        'message',
+        `Business Type: ${businessType}\n` +
+          `Jurisdiction: ${jurisdiction}\n` +
+          (freezone ? `Freezone: ${freezone}\n` : '') +
+          `Visa Count: ${visaCount ?? 1}\n` +
+          `Estimated setup cost: ${AED(range.low)} – ${AED(range.high)}`,
+      )
+
+      const result = await submitContact(null, fd)
+
+      setIsSubmitting(false)
+
+      if (result.ok) {
+        setDone(true)
+      } else {
+        setSubmitError('Failed to send. Please WhatsApp us directly.')
+      }
       return
     }
     setStep((s) => s + 1)
@@ -263,13 +298,19 @@ export function MultiStepCalculator() {
         </>
       )}
 
+      {submitError && (
+        <p style={{ color: '#ef4444', fontSize: 13, marginBottom: 12, textAlign: 'center' }}>
+          {submitError}
+        </p>
+      )}
+
       <button
         type="button"
         className="nz-calc__next"
         onClick={handleNext}
-        disabled={!canAdvance}
+        disabled={!canAdvance || isSubmitting}
       >
-        {step === 3 ? 'GET MY QUOTE →' : 'NEXT →'}
+        {step === 3 ? (isSubmitting ? 'SENDING…' : 'GET MY QUOTE →') : 'NEXT →'}
       </button>
 
       {step > 0 && (

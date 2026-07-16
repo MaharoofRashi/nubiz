@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { PageHero } from '@/components/marketing/page-hero'
+import { ContactForm } from '@/components/marketing/contact-form'
 
 export function generateMetadata(): Metadata {
   return {
@@ -126,6 +127,107 @@ export default function ContactPage() {
               📍 Inside Max Metro Station, Al Jafiliya, opposite Dubai Immigration · Dubai, UAE
             </span>
             <span style={{ fontSize: 13.5, color: '#9ca3af' }}>🕐 Mon–Fri 8AM–8:30PM · Sat–Sun 9AM–8PM</span>
+          </div>
+        </div>
+      </section>
+
+      <section style={{ background: '#f9f9f9', padding: '80px 0' }}>
+        <div className="container">
+          <div className="contact-form-grid">
+            {/* Left — copy */}
+            <div>
+              <p
+                style={{
+                  fontSize: 13,
+                  fontWeight: 700,
+                  letterSpacing: '0.1em',
+                  textTransform: 'uppercase',
+                  color: '#EE005D',
+                  marginBottom: 8,
+                }}
+              >
+                SEND A MESSAGE
+              </p>
+              <h2
+                style={{
+                  fontSize: 32,
+                  fontWeight: 800,
+                  color: '#0a0a0a',
+                  marginBottom: 12,
+                  letterSpacing: '-0.02em',
+                  lineHeight: 1.2,
+                }}
+              >
+                We respond within 60 minutes
+              </h2>
+              <p style={{ fontSize: 16, color: '#6b7280', marginBottom: 40, lineHeight: 1.7 }}>
+                During business hours: Mon–Fri 8AM–8PM, Sat–Sun 9AM–8PM Dubai time. Outside
+                hours? WhatsApp us — we check messages regularly.
+              </p>
+
+              {/* What happens next */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+                {[
+                  {
+                    num: '01',
+                    title: 'We read your message',
+                    desc: 'A named consultant reviews your inquiry personally.',
+                  },
+                  {
+                    num: '02',
+                    title: 'We call or WhatsApp you',
+                    desc: 'Within 60 minutes during business hours.',
+                  },
+                  {
+                    num: '03',
+                    title: 'Free consultation',
+                    desc: 'We advise on the right structure for your business. No obligation.',
+                  },
+                ].map((item) => (
+                  <div key={item.num} style={{ display: 'flex', gap: 16, alignItems: 'flex-start' }}>
+                    <div
+                      style={{
+                        width: 36,
+                        height: 36,
+                        borderRadius: '50%',
+                        background: 'rgba(238,0,93,0.08)',
+                        border: '1px solid rgba(238,0,93,0.2)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        fontSize: 12,
+                        fontWeight: 800,
+                        color: '#EE005D',
+                        flexShrink: 0,
+                      }}
+                    >
+                      {item.num}
+                    </div>
+                    <div>
+                      <p style={{ fontSize: 15, fontWeight: 700, color: '#0a0a0a', margin: '0 0 4px' }}>
+                        {item.title}
+                      </p>
+                      <p style={{ fontSize: 14, color: '#6b7280', margin: 0, lineHeight: 1.5 }}>
+                        {item.desc}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right — form */}
+            <div
+              style={{
+                background: '#fff',
+                borderRadius: 16,
+                padding: 40,
+                border: '1px solid #e5e7eb',
+                boxShadow: '0 4px 24px -8px rgba(0,0,0,0.08)',
+              }}
+            >
+              <ContactForm />
+            </div>
           </div>
         </div>
       </section>

@@ -167,6 +167,9 @@ export function Navbar() {
             <Link href="/blog" className="nz-nav__link" data-active={pathname.startsWith('/blog')}>
               Blog
             </Link>
+            <Link href="/contact" className="nz-nav__link" data-active={pathname === '/contact'}>
+              Contact
+            </Link>
           </div>
 
           <div className="nz-nav__actions">
@@ -455,6 +458,14 @@ export function Navbar() {
             onClick={closeEverything}
           >
             Blog
+          </Link>
+          <Link
+            href="/contact"
+            className="nm-mobile__link"
+            data-active={pathname === '/contact'}
+            onClick={closeEverything}
+          >
+            Contact
           </Link>
         </div>
 
